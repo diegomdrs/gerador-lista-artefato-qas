@@ -58,14 +58,14 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(2)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoQux.txt')
             expectObj(lista[0].listaArtefatoSaida[1], TIPO_MODIFICACAO.RENAMED, 1, 'foo/arquivoQux.txt', 'foo/arquivoFoo.txt', 'foo/arquivoQux.txt')
 
             expect(lista[1].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[1].listaNumeroTarefaSaida[0]).toBe('2222222')
+            expect(lista[1].listaNumeroTarefaSaida[0].numeroTarefa).toBe('2222222')
             expect(lista[1].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[1].listaArtefatoSaida[0], TIPO_MODIFICACAO.MODIFIED, 1, 'foo/arquivoQux.txt')
@@ -96,7 +96,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(3)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoBar.txt')
@@ -135,7 +135,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.DELETED, 1, 'foo/arquivoBar.txt')
@@ -161,7 +161,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.DELETED, 1, 'foo/arquivoBar.txt')
@@ -189,7 +189,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoBar.txt')
@@ -211,7 +211,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.DELETED, 1, 'foo/arquivoBar.txt')
@@ -261,7 +261,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoFoo.txt')
@@ -304,7 +304,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(7)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.MODIFIED, 2, 'foo/Gruntfile.js')
@@ -331,7 +331,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoBar.txt')
@@ -365,7 +365,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/arquivoBar.txt')
@@ -390,7 +390,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(1)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(1)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.DELETED, 1, 'foo/arquivoBar.txt')
@@ -413,7 +413,7 @@ describe('test gerais', () => {
             const lista = await gerador.gerarListaArtefato()
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/.jshintrc')
@@ -543,7 +543,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(2)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(18)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.RENAMED, 1, 'abc/.jshintrcplo', 'abc/.jshintr', 'abc/.jshintrc')
@@ -569,7 +569,7 @@ describe('test gerais', () => {
             expectObj(lista[0].listaArtefatoSaida[17], TIPO_MODIFICACAO.MODIFIED, 1, 'ghi/arquivoIhx.txt')
 
             expect(lista[1].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[1].listaNumeroTarefaSaida[0]).toBe('2222222')
+            expect(lista[1].listaNumeroTarefaSaida[0].numeroTarefa).toBe('2222222')
             expect(lista[1].listaArtefatoSaida).toHaveLength(2)
 
             expectObj(lista[1].listaArtefatoSaida[0], TIPO_MODIFICACAO.MODIFIED, 2, 'abc/arquivoFoo.txt')
@@ -648,7 +648,7 @@ describe('test gerais', () => {
             expect(lista).toHaveLength(2)
 
             expect(lista[0].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[0].listaNumeroTarefaSaida[0]).toBe('1111111')
+            expect(lista[0].listaNumeroTarefaSaida[0].numeroTarefa).toBe('1111111')
             expect(lista[0].listaArtefatoSaida).toHaveLength(10)
 
             expectObj(lista[0].listaArtefatoSaida[0], TIPO_MODIFICACAO.ADDED, 1, 'foo/src/main/java/br/com/foo/bar/api/v1/resource/BazResource.java')
@@ -664,7 +664,7 @@ describe('test gerais', () => {
             expectObj(lista[0].listaArtefatoSaida[9], TIPO_MODIFICACAO.ADDED, 1, 'bar/src/app/spas/bar-controller.js')
 
             expect(lista[1].listaNumeroTarefaSaida).toHaveLength(1)
-            expect(lista[1].listaNumeroTarefaSaida[0]).toBe('2222222')
+            expect(lista[1].listaNumeroTarefaSaida[0].numeroTarefa).toBe('2222222')
             expect(lista[1].listaArtefatoSaida).toHaveLength(7)
 
             expectObj(lista[1].listaArtefatoSaida[0], TIPO_MODIFICACAO.MODIFIED, 2, 'foo/foo-controller.html')

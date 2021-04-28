@@ -18,7 +18,7 @@
                 <tr ng-repeat="(tipoAlteracao, listaArtefatoAgrupado) in saida.listaArtefatoSaida | 
                     groupBy: 'tipoAlteracao'">
 
-                    <td ng-if="$first" rowspan="{{saida.listaArtefatoSaida.length}}">{{saida.listaNumeroTarefaSaida[0]}}
+                    <td ng-if="$first" rowspan="{{saida.listaArtefatoSaida.length}}">{{saida.listaNumeroTarefaSaida[0].numeroTarefa.numeroTarefa}}
                     </td>
 
                     <td>{{vm.obterDescricaoModificacao(tipoAlteracao)}}</td>

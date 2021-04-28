@@ -307,7 +307,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
-            saidaTexto = saidaTexto.concat(`\nTarefa nº ${saida.listaNumeroTarefaSaida[0]}\n`)
+            saidaTexto = saidaTexto.concat(`\nTarefa nº ${saida.listaNumeroTarefaSaida[0].numeroTarefa}\n`)
             saidaTexto = saidaTexto.concat(obterTextoListaArtefatoOfManager(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')
 
@@ -321,7 +321,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
             if (saida.listaNumeroTarefaSaida.length === 1)
                 saidaTexto = saidaTexto.concat(
-                    `\nTarefa nº ${saida.listaNumeroTarefaSaida[0]}\n`)
+                    `\nTarefa nº ${saida.listaNumeroTarefaSaida[0].numeroTarefa}\n`)
 
             else if (saida.listaNumeroTarefaSaida.length > 1)
                 saidaTexto = saidaTexto.concat(

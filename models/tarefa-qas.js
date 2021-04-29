@@ -2,11 +2,13 @@ const { TIPO_MODIFICACAO } = require('../lib/constants')
 
 const Tarefa = function ({
     numeroTarefa,
+    descricaoTarefa,
     tipoAlteracao,
     nomeAntigoArquivo,
     nomeNovoArquivo
 }) {
     this.numeroTarefa = numeroTarefa
+    this.descricaoTarefa = descricaoTarefa
     this.tipoAlteracao = tipoAlteracao
     this.nomeAntigoArquivo = nomeAntigoArquivo
     this.nomeNovoArquivo = nomeNovoArquivo

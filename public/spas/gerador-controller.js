@@ -321,20 +321,20 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
-            // TODO - Descomentar para a inclusao da descricao
-            // const tarefas = saida.listaNumeroTarefaSaida.reduce(
-            //     (tarefa, saida) => {
-            //         saida = saida.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
-            //     }, '')
-            // saidaTexto = saidaTexto.concat(tarefas);
+            if (saida.listaNumeroTarefaSaida.length === 1) {
 
-            if (saida.listaNumeroTarefaSaida.length === 1)
-                saidaTexto = saidaTexto.concat(
-                    `\nTarefa nº ${saida.listaNumeroTarefaSaida[0].numeroTarefa}\n`)
+                const tarefa = saida.listaNumeroTarefaSaida[0]
+                saidaTexto = saidaTexto.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+            }
+            else if (saida.listaNumeroTarefaSaida.length > 1) {
 
-            else if (saida.listaNumeroTarefaSaida.length > 1)
-                saidaTexto = saidaTexto.concat(
-                    `\nTarefas nº ${saida.listaNumeroTarefaSaida.join(', ')}\n`)
+                const tarefas = saida.listaNumeroTarefaSaida.reduce((saidaFoo, tarefa) => {
+                    saidaFoo = saidaFoo.concat(`Tarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+                    return saidaFoo
+                }, '')
+    
+                saidaTexto = saidaTexto.concat(`\n${tarefas}`);
+            }
 
             saidaTexto = saidaTexto.concat(obterTextoListaArtefatoQas(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')

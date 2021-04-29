@@ -307,7 +307,9 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
-            saidaTexto = saidaTexto.concat(`\nTarefa nº ${saida.listaNumeroTarefaSaida[0].numeroTarefa}\n`)
+            const tarefa = saida.listaNumeroTarefaSaida[0];
+
+            saidaTexto = saidaTexto.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
             saidaTexto = saidaTexto.concat(obterTextoListaArtefatoOfManager(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')
 

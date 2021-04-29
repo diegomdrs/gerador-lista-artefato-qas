@@ -38,7 +38,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
         limparMessages()
         limparFiltros()
 
-        vm.listaCaminhoProjeto = 
+        vm.listaCaminhoProjeto =
             geradorConstants.TIPO_DIRETORIO_PADRAO[deviceDetector.os]
     }
 
@@ -320,6 +320,13 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
     function obterTextoListaSaidaQas(listaSaida) {
 
         return listaSaida.reduce((saidaTexto, saida) => {
+
+            // TODO - Descomentar para a inclusao da descricao
+            // const tarefas = saida.listaNumeroTarefaSaida.reduce(
+            //     (tarefa, saida) => {
+            //         saida = saida.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+            //     }, '')
+            // saidaTexto = saidaTexto.concat(tarefas);
 
             if (saida.listaNumeroTarefaSaida.length === 1)
                 saidaTexto = saidaTexto.concat(

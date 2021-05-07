@@ -1,0 +1,40 @@
+[
+    {
+        "listaNumeroTarefaSaida": [
+            "1111111"
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ]
+    },
+    {
+        "listaNumeroTarefaSaida": [
+            "1111111"
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "nomeNovoArtefato": "foo/arquivoQux.txt",
+                "nomeAntigoArtefato": "foo/arquivoFoo.txt",
+                "tipoAlteracao": "R",
+                "numeroAlteracao": 1
+            }
+        ]
+    },
+    {
+        "listaNumeroTarefaSaida": [
+            "2222222"
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "tipoAlteracao": "M",
+                "numeroAlteracao": 1
+            }
+        ]
+    }
+]

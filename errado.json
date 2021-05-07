@@ -1,0 +1,74 @@
+[
+    {
+        "listaNumeroTarefaSaida": [
+            {
+                "numeroTarefa": "1111111",
+                "descricaoTarefa": "commit",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ]
+    },
+    {
+        "listaNumeroTarefaSaida": [
+            {
+                "numeroTarefa": "1111111",
+                "descricaoTarefa": "commit",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "nomeNovoArtefato": "foo/arquivoQux.txt",
+                "nomeAntigoArtefato": "foo/arquivoFoo.txt",
+                "tipoAlteracao": "R",
+                "numeroAlteracao": 1
+            }
+        ]
+    },
+    {
+        "listaNumeroTarefaSaida": [
+            {
+                "numeroTarefa": "1111111",
+                "descricaoTarefa": "commit",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ]
+    },
+    {
+        "listaNumeroTarefaSaida": [
+            {
+                "numeroTarefa": "1111111",
+                "descricaoTarefa": "commit",
+                "tipoAlteracao": "A",
+                "numeroAlteracao": 1
+            }
+        ],
+        "listaArtefatoSaida": [
+            {
+                "nomeArtefato": "foo/arquivoQux.txt",
+                "nomeNovoArtefato": "foo/arquivoQux.txt",
+                "nomeAntigoArtefato": "foo/arquivoFoo.txt",
+                "tipoAlteracao": "R",
+                "numeroAlteracao": 1
+            }
+        ]
+    }
+]

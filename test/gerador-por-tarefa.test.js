@@ -3,7 +3,7 @@ const GeradorTestUtil = require('./gerador-test-util')
 
 const { TIPO_MODIFICACAO } = require('../lib/constants')
 
-const GeradorOfManager = require('../lib/gerador-ofmanager')
+const GeradorPorTarefa = require('../lib/gerador-por-tarefa')
 
 const nomeProjeto = 'foo'
 const autor = 'fulano'
@@ -32,7 +32,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            gerador = new GeradorOfManager(params)
+            gerador = new GeradorPorTarefa(params)
         })
 
         it('teste de listagem de artefatos renomeados', async () => {
@@ -458,7 +458,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            const lista = await new GeradorOfManager(params).gerarListaArtefato()
+            const lista = await new GeradorPorTarefa(params).gerarListaArtefato()
 
             expect(lista).toHaveLength(1)
 
@@ -538,7 +538,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            const lista = await new GeradorOfManager(params).gerarListaArtefato()
+            const lista = await new GeradorPorTarefa(params).gerarListaArtefato()
 
             expect(lista).toHaveLength(2)
 
@@ -642,7 +642,7 @@ describe('test gerais', () => {
             await gitBar.manipularArquivoComCommit('2222222',
                 { origem: 'walzz-controller.html', destino: 'yrizz-controller.html' }, TIPO_MODIFICACAO.RENAMED)
 
-            const lista = await new GeradorOfManager(params).gerarListaArtefato()
+            const lista = await new GeradorPorTarefa(params).gerarListaArtefato()
             // require('../lib/printer')({ mostrarNumModificacao: true }, lista).imprimirListaSaida()
 
             expect(lista).toHaveLength(2)

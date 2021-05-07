@@ -1,4 +1,4 @@
-const TarefaOfManager = function ({
+const Tarefa = function ({
     numeroTarefa,
     descricaoTarefa,
     listaArtefato
@@ -10,4 +10,4 @@ const TarefaOfManager = function ({
     return this
 }
 
-module.exports = TarefaOfManager
+module.exports = Tarefa

@@ -1,6 +1,6 @@
 # Gerador de listagem de artefatos do QAS
 
-App para listar os artefatos incluídos/alterados/renomeados para geração do QAS
+App para listar os artefatos incluídos/alterados/renomeados/removidos para geração do orçamento de OF
 
 ## Pré-requisitos 
 

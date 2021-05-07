@@ -1,7 +1,7 @@
 {
   "name": "gerador-lista-artefato-qas",
-  "version": "0.0.7",
-  "description": "Gerador de listagem de artefatos do QAS",
+  "version": "0.0.8",
+  "description": "App para listar os artefatos incluídos/alterados/renomeados/removidos para geração do orçamento de OF",
   "bin": {
     "gerador-lista-artefato": "./app.js"
   },

@@ -6,7 +6,7 @@ const { TIPO_MODIFICACAO } = require('../lib/constants')
 const nomeProjeto = 'foo'
 const autor = 'fulano'
 
-const GeradorQas = require('../lib/gerador-qas')
+const GeradorPorTipoArtefato = require('../lib/gerador-por-tipo-artefato')
 
 describe('test gerais', () => {
 
@@ -16,7 +16,7 @@ describe('test gerais', () => {
 
         beforeEach(async () => {
 
-            gerador = require('../lib/gerador-qas')
+            gerador = require('../lib/gerador-por-tipo-artefato')
             gitUtil = await new GeradorTestUtil(nomeProjeto, autor)
 
             params = new Param({
@@ -31,7 +31,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            gerador = new GeradorQas(params)
+            gerador = new GeradorPorTipoArtefato(params)
         })
 
         it('teste de listagem de artefatos renomeados', async () => {
@@ -610,7 +610,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            const lista = await new GeradorQas(params).gerarListaArtefato()
+            const lista = await new GeradorPorTipoArtefato(params).gerarListaArtefato()
 
             expect(lista).toHaveLength(2)
 
@@ -704,7 +704,7 @@ describe('test gerais', () => {
                 mostrarRenomeados: true
             })
 
-            const lista = await new GeradorQas(params).gerarListaArtefato()
+            const lista = await new GeradorPorTipoArtefato(params).gerarListaArtefato()
             // require('../lib/printer')({mostrarNumModificacao: true}, lista).imprimirListaSaida()
 
             expect(lista).toHaveLength(3)
@@ -777,7 +777,7 @@ describe('test gerais', () => {
             await gitBar.manipularArquivoComCommit('2222222',
                 { origem: 'walzz-controller.html', destino: 'yrizz-controller.html' }, TIPO_MODIFICACAO.RENAMED)
 
-            const lista = await new GeradorQas(params).gerarListaArtefato()
+            const lista = await new GeradorPorTipoArtefato(params).gerarListaArtefato()
 
             expect(lista).toHaveLength(11)
 

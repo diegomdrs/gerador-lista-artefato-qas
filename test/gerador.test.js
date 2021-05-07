@@ -14,7 +14,7 @@ describe('test gerais', () => {
 
         beforeEach(async () => {
 
-            gerador = require('../lib/gerador-qas')
+            gerador = require('../lib/gerador-por-tipo-artefato')
             gitUtil = await new GeradorTestUtil(nomeProjeto, autor)
 
             params = new Param({

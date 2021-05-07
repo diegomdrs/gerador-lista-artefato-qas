@@ -34,14 +34,14 @@
         },
         {
             // node app --diretorio=/home/foo/Documents --projeto=foo-estatico,foo-api --autor=diegomdrs --task=1111111 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais
-            "name": "jest gerador-qas",
+            "name": "jest gerador-por-tipo-artefato",
             "type": "node",
             "request": "launch",
             "runtimeArgs": [
                 "--inspect-brk",
                 "${workspaceRoot}/node_modules/.bin/jest",
                 "--runInBand",
-                "test/gerador-qas.test.js"
+                "test/gerador-por-tipo-artefato.test.js"
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",

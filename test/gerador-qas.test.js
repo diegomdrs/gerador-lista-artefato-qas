@@ -83,7 +83,7 @@ describe('test gerais', () => {
             expect(lista[2].listaArtefatoSaida[0].nomeArtefato).toBe('foo/arquivoQux.txt')
         })
 
-        xit('teste de listagem de artefatos renomeados 2 vezes', async () => {
+        it('teste de listagem de artefatos renomeados 2 vezes', async () => {
 
             await gitUtil.manipularArquivoComCommit('1111111',
                 'arquivoFoo.txt', TIPO_MODIFICACAO.ADDED)
@@ -715,7 +715,7 @@ describe('test gerais', () => {
         })
 
         // node app --diretorio=/tmp/gerador-lista-artefato-qas --projeto=foo,bar --autor=fulano --task=1111111,2222222 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais --mostrar-renomeados
-        xit('teste de listagem com arquivos com tipos diferentes separados', async () => {
+        it('teste de listagem com arquivos com tipos diferentes separados', async () => {
 
             const nomeProjetoFoo = 'foo'
             const nomeProjetoBar = 'bar'

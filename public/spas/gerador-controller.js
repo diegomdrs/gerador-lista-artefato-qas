@@ -216,7 +216,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        vm.tipoListagem = vm.TIPO_LISTAGEM.OFMANAGER
+        vm.tipoListagem = vm.TIPO_LISTAGEM.POR_TAREFA
 
         vm.req = {
             listaProjeto: [],
@@ -272,7 +272,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.OFMANAGER ?
+        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TAREFA ?
             obterTextoListaSaidaOfManager(vm.listaSaida) : obterTextoListaSaidaQas(vm.listaSaida)
 
         var data = new Blob([textoSaida], { type: 'text/txt;charset=utf-8' })

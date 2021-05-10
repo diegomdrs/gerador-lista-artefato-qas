@@ -80,7 +80,7 @@ $ ./gerador-lista-artefato-qas.exe --diretorio=C:/kdi/git --projeto=foo-estatico
   -p, --projeto <type>       Lista de projetos Git (podem ser passados vários projetos separados por vírgula)
   -a, --autor <type>         Matrícula do autor dos commits
   -t, --task <type>          Lista de tarefas (podem ser passadas várias tarefas separadas por vírgula)
-  -l, --listagem <type>      Tipo da listagem QAS ou OFMANAGER (Opcional) (default: "OFMANAGER")
+  -l, --listagem <type>      Tipo da listagem POR_TIPO_ARTEFATO ou POR_TAREFA (Opcional) (default: "POR_TAREFA")
   --mostrar-num-modificacao  Nº de modificações do artefato na tarefa ou tarefas (Opcional)
   --mostrar-deletados        Mostra artefatos deletados na tarefa (Opcional)
   --mostrar-renomeados       Mostra artefatos renomeados na tarefa (Opcional)

@@ -46,7 +46,7 @@ module.exports = async function (commander) {
 
         function obterTipoGerador(tipoListagem, params) {
 
-            if (tipoListagem == TIPO_LISTAGEM.QAS)
+            if (tipoListagem == TIPO_LISTAGEM.POR_TIPO_ARTEFATO)
                 return new GeradorPorTipoArtefato(params)
     
             return new GeradorPorTarefa(params)

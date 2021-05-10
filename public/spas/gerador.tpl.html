@@ -100,7 +100,7 @@
 					<div class='input-group mb-3'>
 
 						<input type='text' class='form-control'
-							placeholder='Adicione uma ou mais tarefas separadas por vírgula' ng-model='vm.listaTarefa'
+							placeholder='Adicione uma ou mais tarefas ex. 1576250, 1575103' ng-model='vm.listaTarefa'
 							ng-keyup='$event.keyCode == 13 ? vm.adicionarTask() : null'
 							maxlength='300' number-only-and-comma>
 
@@ -125,8 +125,8 @@
 					<div class='input-group mb-3'>
 
 						<input type='text' class='form-control'
-							placeholder='Adic. um ou mais caminhos separados por vírgula ex. /kdi/git, /kdi/git/foo-api'
-							title='Adicione um ou mais caminhos separados por vírgula ex. /kdi/git, /kdi/git/foo-api'
+							placeholder='{{vm.msgSugestaoListaCaminhoProjeto}}'
+							title='{{vm.msgSugestaoListaCaminhoProjeto}}'
 							ng-keyup='$event.keyCode == 13 ? vm.adicionarCaminhoProjeto() : null'
 							ng-model='vm.listaCaminhoProjeto' maxlength='300'>
 

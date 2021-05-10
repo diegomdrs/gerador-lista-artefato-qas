@@ -38,8 +38,9 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
         limparMessages()
         limparFiltros()
 
-        vm.listaCaminhoProjeto =
-            geradorConstants.TIPO_DIRETORIO_PADRAO[deviceDetector.os]
+        const caminhoPadraoProjeto = geradorConstants.TIPO_DIRETORIO_PADRAO[deviceDetector.os]
+        vm.msgSugestaoListaCaminhoProjeto = `Adicione um ou mais caminhos ex. ${
+            caminhoPadraoProjeto}, ${caminhoPadraoProjeto}/foo-api`
     }
 
     function listarDiretorio(listaDiretorio) {

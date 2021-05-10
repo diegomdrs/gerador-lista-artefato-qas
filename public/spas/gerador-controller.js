@@ -216,7 +216,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        vm.tipoListagem = vm.TIPO_LISTAGEM.POR_TAREFA
+        vm.tipoListagem = vm.TIPO_LISTAGEM.POR_TAREFA.codigo
 
         vm.req = {
             listaProjeto: [],

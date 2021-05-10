@@ -79,7 +79,7 @@
 						<div class='col px-0'>
 
 							<select class="custom-select" ng-model='vm.tipoListagem'>
-								<option ng-repeat="tipo in vm.TIPO_LISTAGEM" value="{{tipo}}">{{tipo}}</option>
+								<option ng-repeat="(key, obj) in vm.TIPO_LISTAGEM" value="{{key}}">{{obj.descricao}}</option>
 							</select>
 
 						</div>

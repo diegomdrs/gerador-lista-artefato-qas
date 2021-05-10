@@ -3,8 +3,8 @@ angular
     .constant('geradorConstants', {
 
         TIPO_LISTAGEM: {
-            POR_TAREFA: 'POR_TAREFA',
-            POR_TIPO_ARTEFATO: 'POR_TIPO_ARTEFATO'
+            POR_TAREFA: { codigo: 'POR_TAREFA', descricao: 'Por Tarefa' },
+            POR_TIPO_ARTEFATO: { codigo: 'POR_TIPO_ARTEFATO', descricao: 'Por Tipo de Artefato' }
         },
 
         TIPO_MODIFICACAO: {

@@ -123,7 +123,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         if (vm.listaTarefa) {
 
-            const listaTarefa = vm.listaTarefa.split(',')
+            const listaTarefa = vm.listaTarefa.split(',').filter(tarefa => tarefa);
 
             for (const tarefa of listaTarefa) {
 
@@ -147,7 +147,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         if (vm.listaCaminhoProjeto) {
 
-            const listaProjeto = vm.listaCaminhoProjeto.split(',')
+            const listaProjeto = vm.listaCaminhoProjeto.split(',').filter(caminho => caminho)
             const listaPesquisa = []
 
             for (const projeto of listaProjeto) {

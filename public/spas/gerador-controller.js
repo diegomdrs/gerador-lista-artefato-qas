@@ -273,7 +273,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TAREFA ?
+        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TAREFA.codigo ?
             obterTextoListaSaidaOfManager(vm.listaSaida) : obterTextoListaSaidaQas(vm.listaSaida)
 
         var data = new Blob([textoSaida], { type: 'text/txt;charset=utf-8' })

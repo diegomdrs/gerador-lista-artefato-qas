@@ -1,7 +1,7 @@
 
 const Commit = require('../models/commit')
 
-const Arquivo = function (nomeProjeto, numeroTarefa, descricaoTarefa, linhaArquivo) {
+const Arquivo = function (nomeProjeto, numeroTarefa, hash, descricaoTarefa, linhaArquivo) {
 
     this.nomeProjeto = nomeProjeto
 
@@ -11,7 +11,7 @@ const Arquivo = function (nomeProjeto, numeroTarefa, descricaoTarefa, linhaArqui
     this.nomeArquivo = this.nomeArquivo.match(/^[^\s]*/g)[0]
         .replace(/^/g, this.nomeProjeto + '/')
 
-    this.commit = new Commit(this, numeroTarefa, descricaoTarefa, linhaArquivo)
+    this.commit = new Commit(this, numeroTarefa, descricaoTarefa, hash, linhaArquivo)
 
     return this
 }

@@ -49,6 +49,6 @@
   "devDependencies": {
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
-    "simple-git": "^1.129.0"
+    "simple-git": "^2.40.0"
   }
 }

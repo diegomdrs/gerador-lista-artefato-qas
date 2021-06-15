@@ -8,6 +8,7 @@ const Artefato = function ({
     nomeProjeto,
     tipoAlteracao,
     numeroAlteracao,
+    hash
 }) {
     this.nomeArtefato = nomeArtefato
     this.nomeNovoArtefato = nomeNovoArtefato
@@ -16,6 +17,7 @@ const Artefato = function ({
     this.nomeProjeto = nomeProjeto
     this.tipoAlteracao = tipoAlteracao
     this.numeroAlteracao = numeroAlteracao
+    this.hash = hash
 
     this.isTipoAlteracaoModificacao = () => this.tipoAlteracao === TIPO_MODIFICACAO.MODIFIED
     this.isTipoAlteracaoDelecao = () => this.tipoAlteracao === TIPO_MODIFICACAO.DELETED

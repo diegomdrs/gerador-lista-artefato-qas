@@ -27,8 +27,8 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
     vm.removerTask = removerTask
     vm.obterNomeProjeto = obterNomeProjeto
     vm.obterNomeArtefato = obterNomeArtefato
-    vm.copiarLinhaClipboardOfManager = copiarLinhaClipboardOfManager
-    vm.copiarLinhaClipboardQas = copiarLinhaClipboardQas
+    vm.copiarLinhaClipboardPorTarefa = copiarLinhaClipboardPorTarefa
+    vm.copiarLinhaClipboardPorTipoArtefato = copiarLinhaClipboardPorTipoArtefato
     vm.exportarArquivoCsv = exportarArquivoCsv
     vm.exportarArquivoTxt = exportarArquivoTxt
     vm.close = close
@@ -274,17 +274,17 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
         limparMessages()
 
         const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TAREFA.codigo ?
-            obterTextoListaSaidaOfManager(vm.listaSaida) : obterTextoListaSaidaQas(vm.listaSaida)
+            obterTextoListaSaidaPorTarefa(vm.listaSaida) : obterTextoListaSaidaPorTipoArtefato(vm.listaSaida)
 
         var data = new Blob([textoSaida], { type: 'text/txt;charset=utf-8' })
         FileSaver.saveAs(data, 'lista-artefato.txt')
     }
 
-    function copiarLinhaClipboardOfManager(listaArtefato) {
+    function copiarLinhaClipboardPorTarefa(listaArtefato) {
 
         limparMessages()
 
-        const textoSaida = obterTextoListaArtefatoOfManager(listaArtefato)
+        const textoSaida = obterTextoListaArtefatoPorTarefa(listaArtefato)
 
         clipboardUtil.copiarTabelaClipboard(textoSaida)
 
@@ -292,11 +292,11 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
             geradorConstants.TIPO_POSICAO_ALERT.TOP)
     }
 
-    function copiarLinhaClipboardQas(saida) {
+    function copiarLinhaClipboardPorTipoArtefato(saida) {
 
         limparMessages()
 
-        const textoSaida = obterTextoListaSaidaQas([saida])
+        const textoSaida = obterTextoListaSaidaPorTipoArtefato([saida])
 
         clipboardUtil.copiarTabelaClipboard(textoSaida)
 
@@ -304,21 +304,21 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
             geradorConstants.TIPO_POSICAO_ALERT.TOP)
     }
 
-    function obterTextoListaSaidaOfManager(listaSaida) {
+    function obterTextoListaSaidaPorTarefa(listaSaida) {
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
             const tarefa = saida.listaNumeroTarefaSaida[0];
 
             saidaTexto = saidaTexto.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
-            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoOfManager(saida.listaArtefatoSaida))
+            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoPorTarefa(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')
 
             return saidaTexto
         }, '')
     }
 
-    function obterTextoListaSaidaQas(listaSaida) {
+    function obterTextoListaSaidaPorTipoArtefato(listaSaida) {
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
@@ -344,7 +344,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
         }, '')
     }
 
-    function obterTextoListaArtefatoOfManager(listaArtefato) {
+    function obterTextoListaArtefatoPorTarefa(listaArtefato) {
 
         return listaArtefato.reduce((saidaTexto, artefato) => {
 
@@ -356,7 +356,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
                 if (artefato.tipoAlteracao === vm.TIPO_MODIFICACAO.ADDED.codigo)
                     saidaTexto = saidaTexto.concat('+')
 
-                saidaTexto = saidaTexto.concat(artefato.nomeArtefato)
+                saidaTexto = saidaTexto.concat(`${artefato.nomeArtefato}#${artefato.hash}`)
             }
 
             return saidaTexto

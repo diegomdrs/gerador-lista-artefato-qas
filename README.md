@@ -15,6 +15,11 @@ App para listar os artefatos incluídos/alterados/renomeados/removidos para gera
 - Não utilizar espaços nos nomes dos arquivos
 - Configurar corretamente as variáveis do Git `user.name` e `user.email` com matrícula e email
 - Utilizar o comando `git mv` para renomear os artefatos
+- Utilizar o seguinte formato nas mensagens de commit:
+  - `task 123456 - Mensagem do commit`
+  - `task 123456 Mensagem do commit`
+  - `123456 - Mensagem do commit`
+  - `123456 Mensagem do commit`
 
 ## Download 
 

@@ -1,4 +1,4 @@
-# Gerador de listagem de artefatos do QAS
+# Gerador de listagem de artefatos
 
 App para listar os artefatos incluídos/alterados/renomeados para geração do QAS
 

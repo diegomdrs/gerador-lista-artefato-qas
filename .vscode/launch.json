@@ -34,14 +34,14 @@
         },
         {
             // node app --diretorio=/home/foo/Documents --projeto=foo-estatico,foo-api --autor=diegomdrs --task=1111111 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais
-            "name": "jest gerador-qas",
+            "name": "jest gerador-por-tipo-artefato",
             "type": "node",
             "request": "launch",
             "runtimeArgs": [
                 "--inspect-brk",
                 "${workspaceRoot}/node_modules/.bin/jest",
                 "--runInBand",
-                "test/gerador-qas.test.js"
+                "test/gerador-por-tipo-artefato.test.js"
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
@@ -49,14 +49,14 @@
         },
         {
             // node app --diretorio=/home/foo/Documents --projeto=foo-estatico,foo-api --autor=diegomdrs --task=1111111 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais
-            "name": "jest gerador-ofmanager",
+            "name": "jest gerador-por-tarefa",
             "type": "node",
             "request": "launch",
             "runtimeArgs": [
                 "--inspect-brk",
                 "${workspaceRoot}/node_modules/.bin/jest",
                 "--runInBand",
-                "test/gerador-ofmanager.test.js"
+                "test/gerador-por-tarefa.test.js"
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
@@ -64,13 +64,13 @@
         },
         {
             // jest --runInBand --verbose test/gerador.test.js
-            // node app --diretorio=/tmp/gerador-lista-artefato-qas --projeto=foo,bar --autor=fulano --task=1111111,2222222 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais --mostrar-renomeados
+            // node app --diretorio=/tmp/gerador-lista-artefato --projeto=foo,bar --autor=fulano --task=1111111,2222222 --mostrar-num-modificacao --mostrar-deletados --mostrar-commits-locais --mostrar-renomeados
             "type": "node",
             "request": "launch",
             "name": "comando test app.js",
             "program": "${workspaceFolder}/app.js",
             "args": [
-                "--diretorio=/tmp/gerador-lista-artefato-qas",
+                "--diretorio=/tmp/gerador-lista-artefato",
                 "--projeto=foo",
                 "--autor=fulano",
                 "--task=1111111,2222222",

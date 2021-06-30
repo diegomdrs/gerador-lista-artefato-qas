@@ -1,7 +1,7 @@
 {
-  "name": "gerador-lista-artefato-qas",
-  "version": "0.0.7",
-  "description": "Gerador de listagem de artefatos do QAS",
+  "name": "gerador-lista-artefato",
+  "version": "0.0.8",
+  "description": "App para listar os artefatos incluídos/alterados/renomeados/removidos para geração do orçamento de OF",
   "bin": {
     "gerador-lista-artefato": "./app.js"
   },
@@ -12,9 +12,9 @@
     "start": "node app -s",
     "dev": "node --inspect app -s",
     "test": "jest --runInBand --verbose",
-    "pkg-win": "pkg . -t node8-win-x64 -o dist/gerador-lista-artefato-qas-win.exe",
-    "pkg-lin": "pkg . -t node8-linux-x64 -o dist/gerador-lista-artefato-qas-lin",
-    "pkg-mac": "pkg . -t node8-macos-x64 -o dist/gerador-lista-artefato-qas-mac",
+    "pkg-win": "pkg . -t node8-win-x64 -o dist/gerador-lista-artefato-win.exe",
+    "pkg-lin": "pkg . -t node8-linux-x64 -o dist/gerador-lista-artefato-lin",
+    "pkg-mac": "pkg . -t node8-macos-x64 -o dist/gerador-lista-artefato-mac",
     "pkg": "npm run pkg-win && npm run pkg-lin && npm run pkg-mac"
   },
   "keywords": [],
@@ -22,12 +22,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diegomdrs/gerador-lista-artefato-qas"
+    "url": "git+https://github.com/diegomdrs/gerador-lista-artefato"
   },
   "bugs": {
-    "url": "https://github.com/diegomdrs/gerador-lista-artefato-qas/issues"
+    "url": "https://github.com/diegomdrs/gerador-lista-artefato/issues"
   },
-  "homepage": "https://github.com/diegomdrs/gerador-lista-artefato-qas#readme",
+  "homepage": "https://github.com/diegomdrs/gerador-lista-artefato#readme",
   "dependencies": {
     "angular": "^1.7.9",
     "angular-block-ui": "^0.2.2",
@@ -49,6 +49,6 @@
   "devDependencies": {
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
-    "simple-git": "^1.129.0"
+    "simple-git": "^2.40.0"
   }
 }

@@ -79,7 +79,7 @@
 						<div class='col px-0'>
 
 							<select class="custom-select" ng-model='vm.tipoListagem'>
-								<option ng-repeat="tipo in vm.TIPO_LISTAGEM" value="{{tipo}}">{{tipo}}</option>
+								<option ng-repeat="(key, obj) in vm.TIPO_LISTAGEM" value="{{key}}">{{obj.descricao}}</option>
 							</select>
 
 						</div>
@@ -100,7 +100,7 @@
 					<div class='input-group mb-3'>
 
 						<input type='text' class='form-control'
-							placeholder='Adicione uma ou mais tarefas separadas por vírgula' ng-model='vm.listaTarefa'
+							placeholder='Adicione uma ou mais tarefas ex. 1576250, 1575103' ng-model='vm.listaTarefa'
 							ng-keyup='$event.keyCode == 13 ? vm.adicionarTask() : null'
 							maxlength='300' number-only-and-comma>
 
@@ -125,8 +125,8 @@
 					<div class='input-group mb-3'>
 
 						<input type='text' class='form-control'
-							placeholder='Adic. um ou mais caminhos separados por vírgula ex. /kdi/git, /kdi/git/foo-api'
-							title='Adicione um ou mais caminhos separados por vírgula ex. /kdi/git, /kdi/git/foo-api'
+							placeholder='{{vm.msgSugestaoListaCaminhoProjeto}}'
+							title='{{vm.msgSugestaoListaCaminhoProjeto}}'
 							ng-keyup='$event.keyCode == 13 ? vm.adicionarCaminhoProjeto() : null'
 							ng-model='vm.listaCaminhoProjeto' maxlength='300'>
 
@@ -265,8 +265,7 @@
 					</button>
 
 				</div>
-
-				<div class='py-1 px-0' ng-if='vm.listaSaida.length && vm.req.tipoListagem === vm.TIPO_LISTAGEM.QAS'>
+				<div class='py-1 px-0' ng-if='vm.listaSaida.length && vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TIPO_ARTEFATO.codigo'>
 					<button class='btn btn-block btn-success' ng-click='vm.exportarArquivoCsv()'
 						title='Exportar listagem para um arquivo CSV'>
 						<i class="oi oi-file"></i> Exportar para CSV
@@ -275,8 +274,8 @@
 			</div>
 		</div>
 
-		<div ng-include="'spas/include/lista-artefato-ofmanager.html'"></div>
-		<div ng-include="'spas/include/lista-artefato-qas.html'"></div>
+		<div ng-include="'spas/include/lista-por-tarefa.html'"></div>
+		<div ng-include="'spas/include/lista-por-tipo-artefato.html'"></div>
 
 		<hr class="my-2" />
 

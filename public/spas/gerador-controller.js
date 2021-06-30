@@ -27,8 +27,8 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
     vm.removerTask = removerTask
     vm.obterNomeProjeto = obterNomeProjeto
     vm.obterNomeArtefato = obterNomeArtefato
-    vm.copiarLinhaClipboardOfManager = copiarLinhaClipboardOfManager
-    vm.copiarLinhaClipboardQas = copiarLinhaClipboardQas
+    vm.copiarLinhaClipboardPorTarefa = copiarLinhaClipboardPorTarefa
+    vm.copiarLinhaClipboardPorTipoArtefato = copiarLinhaClipboardPorTipoArtefato
     vm.exportarArquivoCsv = exportarArquivoCsv
     vm.exportarArquivoTxt = exportarArquivoTxt
     vm.close = close
@@ -38,8 +38,9 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
         limparMessages()
         limparFiltros()
 
-        vm.listaCaminhoProjeto = 
-            geradorConstants.TIPO_DIRETORIO_PADRAO[deviceDetector.os]
+        const caminhoPadraoProjeto = geradorConstants.TIPO_DIRETORIO_PADRAO[deviceDetector.os]
+        vm.msgSugestaoListaCaminhoProjeto = `Adicione um ou mais caminhos ex. ${
+            caminhoPadraoProjeto}, ${caminhoPadraoProjeto}/foo-api`
     }
 
     function listarDiretorio(listaDiretorio) {
@@ -122,7 +123,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         if (vm.listaTarefa) {
 
-            const listaTarefa = vm.listaTarefa.split(',')
+            const listaTarefa = vm.listaTarefa.split(',').filter(tarefa => tarefa);
 
             for (const tarefa of listaTarefa) {
 
@@ -146,7 +147,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         if (vm.listaCaminhoProjeto) {
 
-            const listaProjeto = vm.listaCaminhoProjeto.split(',')
+            const listaProjeto = vm.listaCaminhoProjeto.split(',').filter(caminho => caminho)
             const listaPesquisa = []
 
             for (const projeto of listaProjeto) {
@@ -216,7 +217,7 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        vm.tipoListagem = vm.TIPO_LISTAGEM.OFMANAGER
+        vm.tipoListagem = vm.TIPO_LISTAGEM.POR_TAREFA.codigo
 
         vm.req = {
             listaProjeto: [],
@@ -272,18 +273,18 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
 
         limparMessages()
 
-        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.OFMANAGER ?
-            obterTextoListaSaidaOfManager(vm.listaSaida) : obterTextoListaSaidaQas(vm.listaSaida)
+        const textoSaida = vm.req.tipoListagem === vm.TIPO_LISTAGEM.POR_TAREFA.codigo ?
+            obterTextoListaSaidaPorTarefa(vm.listaSaida) : obterTextoListaSaidaPorTipoArtefato(vm.listaSaida)
 
         var data = new Blob([textoSaida], { type: 'text/txt;charset=utf-8' })
         FileSaver.saveAs(data, 'lista-artefato.txt')
     }
 
-    function copiarLinhaClipboardOfManager(listaArtefato) {
+    function copiarLinhaClipboardPorTarefa(listaArtefato) {
 
         limparMessages()
 
-        const textoSaida = obterTextoListaArtefatoOfManager(listaArtefato)
+        const textoSaida = obterTextoListaArtefatoPorTarefa(listaArtefato)
 
         clipboardUtil.copiarTabelaClipboard(textoSaida)
 
@@ -291,11 +292,11 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
             geradorConstants.TIPO_POSICAO_ALERT.TOP)
     }
 
-    function copiarLinhaClipboardQas(saida) {
+    function copiarLinhaClipboardPorTipoArtefato(saida) {
 
         limparMessages()
 
-        const textoSaida = obterTextoListaSaidaQas([saida])
+        const textoSaida = obterTextoListaSaidaPorTipoArtefato([saida])
 
         clipboardUtil.copiarTabelaClipboard(textoSaida)
 
@@ -303,38 +304,47 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
             geradorConstants.TIPO_POSICAO_ALERT.TOP)
     }
 
-    function obterTextoListaSaidaOfManager(listaSaida) {
+    function obterTextoListaSaidaPorTarefa(listaSaida) {
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
-            saidaTexto = saidaTexto.concat(`\nTarefa nº ${saida.listaNumeroTarefaSaida[0]}\n`)
-            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoOfManager(saida.listaArtefatoSaida))
+            const tarefa = saida.listaNumeroTarefaSaida[0];
+
+            saidaTexto = saidaTexto.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoPorTarefa(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')
 
             return saidaTexto
         }, '')
     }
 
-    function obterTextoListaSaidaQas(listaSaida) {
+    function obterTextoListaSaidaPorTipoArtefato(listaSaida) {
 
         return listaSaida.reduce((saidaTexto, saida) => {
 
-            if (saida.listaNumeroTarefaSaida.length === 1)
-                saidaTexto = saidaTexto.concat(
-                    `\nTarefa nº ${saida.listaNumeroTarefaSaida[0]}\n`)
+            if (saida.listaNumeroTarefaSaida.length === 1) {
 
-            else if (saida.listaNumeroTarefaSaida.length > 1)
-                saidaTexto = saidaTexto.concat(
-                    `\nTarefas nº ${saida.listaNumeroTarefaSaida.join(', ')}\n`)
+                const tarefa = saida.listaNumeroTarefaSaida[0]
+                saidaTexto = saidaTexto.concat(`\nTarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+            }
+            else if (saida.listaNumeroTarefaSaida.length > 1) {
 
-            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoQas(saida.listaArtefatoSaida))
+                const tarefas = saida.listaNumeroTarefaSaida.reduce((saidaFoo, tarefa) => {
+                    saidaFoo = saidaFoo.concat(`Tarefa nº ${tarefa.numeroTarefa} - ${tarefa.descricaoTarefa}\n`)
+                    return saidaFoo
+                }, '')
+    
+                saidaTexto = saidaTexto.concat(`\n${tarefas}`);
+            }
+
+            saidaTexto = saidaTexto.concat(obterTextoListaArtefatoPorTipoArquivo(saida.listaArtefatoSaida))
             saidaTexto = saidaTexto.concat('\n')
 
             return saidaTexto
         }, '')
     }
 
-    function obterTextoListaArtefatoOfManager(listaArtefato) {
+    function obterTextoListaArtefatoPorTarefa(listaArtefato) {
 
         return listaArtefato.reduce((saidaTexto, artefato) => {
 
@@ -346,14 +356,14 @@ function GeradorController(FileSaver, Blob, geradorService, blockUI, clipboardUt
                 if (artefato.tipoAlteracao === vm.TIPO_MODIFICACAO.ADDED.codigo)
                     saidaTexto = saidaTexto.concat('+')
 
-                saidaTexto = saidaTexto.concat(artefato.nomeArtefato)
+                saidaTexto = saidaTexto.concat(`${artefato.nomeArtefato}#${artefato.hash}`)
             }
 
             return saidaTexto
         }, '')
     }
 
-    function obterTextoListaArtefatoQas(listaArtefato) {
+    function obterTextoListaArtefatoPorTipoArquivo(listaArtefato) {
 
         return listaArtefato.reduce((saidaTexto, artefato) => {
 

@@ -6,8 +6,10 @@ const Comando = (caminhoProjeto, autor, listaTask, mostrarCommitsLocais) => {
         ? comando.concat(' --branches')
         : comando.concat(' --remotes')
 
+    // %H - commit hash
+    // %h - abbreviated commit hash
     comando = comando.concat(
-        ' --name-status --pretty=format:\'%s\' -C')
+        ' --name-status --pretty=format:\'%h %s\' -C')
 
     for (const task of listaTask)
         comando = comando.concat(` --grep=${task}`)

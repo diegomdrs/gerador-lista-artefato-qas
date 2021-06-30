@@ -4,7 +4,7 @@ const fs = require('fs-extra')
 const autor = 'fulano'
 const GeradorTestUtil = require('./gerador-test-util')
 
-const caminho = ['/tmp/gerador-lista-artefato-qas']
+const caminho = ['/tmp/gerador-lista-artefato']
 let diretorio = {}
 
 // node_modules/jest/bin/jest.js --runInBand --verbose test/diretorio.test.js 
@@ -130,7 +130,7 @@ describe('test gerais', () => {
 
         const lista = await diretorio.listarDiretorio()
 
-        expect(lista[0]).toBe('/tmp/gerador-lista-artefato-qas/foo')
+        expect(lista[0]).toBe('/tmp/gerador-lista-artefato/foo')
 
         gitFoo.removerDiretorioProjeto()
     })
